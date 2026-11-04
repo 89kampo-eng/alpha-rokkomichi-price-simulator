@@ -17,7 +17,7 @@
 <label class="check-item"><input type="checkbox" value="足裏測定" data-price="3300"><span>足裏測定（＋￥3,300）</span></label><label class="check-item"><input type="checkbox" value="ビタミン・ミネラル測定" data-price="3300"><span>ビタミン・ミネラル測定（＋￥3,300）</span></label>
 <label class="check-item"><input type="checkbox" value="血管年齢測定" data-price="1100"><span>血管年齢測定（＋￥1,100）</span></label><label class="check-item"><input type="checkbox" value="エコー（超音波検査）" data-price="1980"><span>エコー（超音波検査）（＋￥1,980）</span></label></div></div>
 <div class="result" aria-live="polite"><div class="result-head"><span id="result-label">コースを選択すると料金が表示されます</span><span class="total" id="total">—</span></div><div class="breakdown" id="breakdown"></div></div>
-<div class="foot">当院通常コースと健康保険コースは別々に計算し、同時に加算しません。表示金額は概算です。実際のお支払い金額は施術内容・保険適用状況等により異なる場合があります。</div></section></main>
+<div class="foot">当院おすすめコースは健康保険の自己負担分＋初診時実費2,200円、健康保険のみは健康保険の自己負担分のみで計算します。表示金額は概算です。実際のお支払い金額は施術内容・保険適用状況等により異なる場合があります。</div></section></main>
 <script>
 const yen=n=>'￥'+Number(n).toLocaleString('ja-JP');
 const insuranceBase={1:340,2:670,3:1010};
@@ -30,13 +30,13 @@ const breakdown=document.querySelector('#breakdown');
 function calculate(){
  const selected=document.querySelector('input[name="course"]:checked')?.value;
  const usingInsurance=selected==='insurance';
- ratioField.classList.toggle('hidden',!usingInsurance);
+ ratioField.classList.toggle('hidden',!selected);
  insuranceNote.classList.toggle('hidden',!usingInsurance);
  optionsField.classList.toggle('hidden',!selected);
  if(!selected){resultLabel.textContent='コースを選択すると料金が表示されます';total.textContent='—';breakdown.innerHTML='';return;}
  let min,max,rows=[];
- if(usingInsurance){const ratio=document.querySelector('input[name="ratio"]:checked').value;min=insuranceBase[ratio];max=min;rows.push({label:'初検料＋基本施術（健康保険の自己負担分）',min:min,max:max});resultLabel.textContent='健康保険コース 初診概算（税込）';}
- else{min=2200;max=2200;rows.push({label:'当院通常コース（初診時）',min:min,max:max});resultLabel.textContent='当院通常コース 初診概算（税込）';}
+ const ratio=document.querySelector('input[name="ratio"]:checked').value;const copay=insuranceBase[ratio];if(usingInsurance){min=copay;max=copay;rows.push({label:'初検料＋基本施術（健康保険の自己負担分）',min:min,max:max});resultLabel.textContent='健康保険のみ 初診概算（税込）';}
+ else{min=copay+2200;max=min;rows.push({label:'健康保険の自己負担分',min:copay,max:copay});rows.push({label:'当院おすすめコース 初診時実費',min:2200,max:2200});resultLabel.textContent='当院おすすめコース 初診概算（税込）';}
  document.querySelectorAll('#options input:checked').forEach(item=>{const optionMin=Number(item.dataset.min||item.dataset.price);const optionMax=Number(item.dataset.max||item.dataset.price);min+=optionMin;max+=optionMax;rows.push({label:item.value,min:optionMin,max:optionMax});});
  total.textContent=min===max?yen(min):yen(min)+' 〜 '+yen(max);
  breakdown.innerHTML=rows.map(row=>'<div class="line"><span>'+row.label+'</span><span>'+(row.min===row.max?yen(row.min):yen(row.min)+' 〜 '+yen(row.max))+'</span></div>').join('');
