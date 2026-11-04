@@ -1,25 +1,45 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>料金シミュレーション | α六甲道整骨院・鍼灸院</title>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>料金シミュレーション | α六甲道整骨院・鍼灸院</title>
 <style>
-:root{--bg:#f6f2e9;--paper:#fff;--ink:#2b2e3a;--muted:#63667a;--green:#3f5a3b;--accent:#5f7a5a;--pink:#8b5a6b;--line:#ded6c3;--pale:#ebf2ea}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 "Yu Gothic",Meiryo,sans-serif}.wrap{max-width:820px;margin:auto;padding:32px 18px 56px}header{text-align:center;margin-bottom:24px}.seal{margin:auto auto 10px;border:2px solid var(--pink);border-radius:50%;width:54px;height:54px;background:white;color:var(--pink);font:bold 24px/50px serif}h1{font:bold 26px/1.4 "Yu Mincho",serif;margin:0}.sub{color:var(--muted);font-size:13px}.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:26px;box-shadow:0 4px 14px #00000008}.intro{color:var(--muted);margin:0 0 20px}.field{margin:0 0 22px}.q{display:block;font-weight:bold;margin-bottom:9px}.choice-group{display:flex;flex-wrap:wrap;gap:9px}.choice{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:22px;padding:8px 14px;background:#fcfaf5;cursor:pointer}.choice:has(input:checked){background:var(--green);border-color:var(--green);color:white}.choice input{accent-color:var(--pink)}.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.check-item{display:flex;align-items:flex-start;gap:8px;padding:7px;border-radius:6px;cursor:pointer}.check-item:hover{background:#f6f2e9}.check-item input{margin-top:6px;accent-color:var(--pink)}.note{background:#f4efe4;border:1px solid var(--line);border-left:4px solid var(--pink);padding:12px 15px;border-radius:6px;color:var(--muted);font-size:13px;margin:10px 0 18px}.result{position:sticky;bottom:12px;margin-top:24px;background:var(--pale);border:1px solid var(--accent);border-radius:10px;padding:18px 20px;box-shadow:0 4px 20px #00000012}.result-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--green);font-weight:bold}.total{font-size:25px}.breakdown{border-top:1px dashed var(--accent);padding-top:10px;margin-top:10px;font-size:14px}.line{display:flex;justify-content:space-between;gap:12px;padding:3px 0}.muted,.foot{color:var(--muted)}.foot{font-size:12px;margin:18px 2px 0}@media(max-width:600px){.wrap{padding:20px 12px 40px}.card{padding:19px 15px}.check-grid{grid-template-columns:1fr}.total{font-size:22px}}
-</style></head><body><main class="wrap"><header><div class="seal">α</div><h1>α六甲道整骨院・鍼灸院</h1><div class="sub">初診・保険併用 料金シミュレーション</div></header>
-<section class="card"><p class="intro">初診の方の保険併用メニューです。健康保険の負担割合と希望する自費オプションを選択すると、税込の概算金額が表示されます。</p>
-<div class="field"><span class="q">健康保険の負担割合</span><div class="choice-group"><label class="choice"><input type="radio" name="ratio" value="1"> 1割</label><label class="choice"><input type="radio" name="ratio" value="2"> 2割</label><label class="choice"><input type="radio" name="ratio" value="3" checked> 3割</label></div></div>
-<div class="note">急性期の捻挫・打撲・挫傷・骨折・脱臼が保険適用となります。肩こり・慢性腰痛は自費適用となります。</div>
-<div class="field"><span class="q">併用自費オプション（任意）</span><div class="check-grid" id="options">
-<label class="check-item"><input type="checkbox" value="鍼灸施術" data-min="2200" data-max="4400">鍼灸施術（＋￥2,200〜￥4,400）</label>
-<label class="check-item"><input type="checkbox" value="骨盤矯正" data-price="1980">骨盤矯正（＋￥1,980）</label><label class="check-item"><input type="checkbox" value="矯正" data-price="1980">矯正（＋￥1,980）</label>
-<label class="check-item"><input type="checkbox" value="自律神経測定" data-price="3300">自律神経測定（＋￥3,300）</label><label class="check-item"><input type="checkbox" value="足裏測定" data-price="3300">足裏測定（＋￥3,300）</label>
-<label class="check-item"><input type="checkbox" value="ビタミン・ミネラル測定" data-price="3300">ビタミン・ミネラル測定（＋￥3,300）</label><label class="check-item"><input type="checkbox" value="血管年齢測定" data-price="1100">血管年齢測定（＋￥1,100）</label>
-<label class="check-item"><input type="checkbox" value="エコー（超音波検査）" data-price="1980">エコー（超音波検査）（＋￥1,980）</label><label class="check-item"><input type="checkbox" value="温灸" data-price="550">温灸（＋￥550）</label>
-</div></div>
-<div class="result" aria-live="polite"><div class="result-head"><span>初診 概算お支払目安（税込）</span><span class="total" id="total">￥3,210</span></div><div class="breakdown" id="breakdown"></div></div>
-<div class="foot">表示金額は登録料金をもとにした概算です。実際のお支払い金額は、施術内容・保険適用状況等により異なる場合があります。</div></section></main>
+:root{--bg:#f6f2e9;--paper:#fff;--ink:#2b2e3a;--muted:#63667a;--green:#3f5a3b;--pink:#8b5a6b;--line:#ded6c3;--pale:#ebf2ea}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Yu Gothic",Meiryo,sans-serif}.wrap{max-width:820px;margin:auto;padding:30px 16px 54px}header{text-align:center;margin-bottom:22px}.seal{margin:0 auto 9px;border:2px solid var(--pink);border-radius:50%;width:54px;height:54px;background:#fff;color:var(--pink);font:bold 24px/50px serif}h1{font:bold 26px/1.4 "Yu Mincho",serif;margin:0}.sub{color:var(--muted);font-size:14px}.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 4px 14px #00000008}.intro{margin:0 0 20px;color:var(--muted)}.field{margin:0 0 22px}.q{display:block;font-weight:bold;margin-bottom:10px}.course-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.course-option{display:flex;align-items:center;gap:10px;min-height:76px;padding:14px;border:2px solid var(--line);border-radius:12px;background:#fcfaf5;cursor:pointer;font-weight:bold;transition:.15s}.course-option:hover{border-color:#5f7a5a;background:#f4f7f2}.course-option:has(input:checked){border-color:var(--green);background:var(--pale);box-shadow:0 0 0 1px var(--green)}.course-option input{width:21px;height:21px;margin:0;accent-color:var(--green);flex:0 0 auto}.course-option span{line-height:1.45}.choice-group{display:flex;flex-wrap:wrap;gap:10px}.choice{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:24px;padding:9px 16px;background:#fcfaf5;cursor:pointer}.choice:has(input:checked){background:var(--green);border-color:var(--green);color:#fff}.choice input{width:18px;height:18px;margin:0;accent-color:var(--pink)}.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.check-item{display:flex;align-items:flex-start;gap:9px;padding:9px;border-radius:7px;cursor:pointer}.check-item:hover{background:#f6f2e9}.check-item input{width:18px;height:18px;margin:4px 0 0;accent-color:var(--pink);flex:0 0 auto}.note{background:#f4efe4;border:1px solid var(--line);border-left:4px solid var(--pink);padding:12px 14px;border-radius:7px;color:var(--muted);font-size:13px;margin:12px 0 0}.hidden{display:none!important}.result{margin-top:24px;background:var(--pale);border:1px solid #5f7a5a;border-radius:12px;padding:18px 20px}.result-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--green);font-weight:bold}.total{font-size:26px}.breakdown{border-top:1px dashed #5f7a5a;padding-top:10px;margin-top:10px;font-size:14px}.line{display:flex;justify-content:space-between;gap:12px;padding:3px 0}.foot{color:var(--muted);font-size:12px;margin:16px 2px 0}@media(max-width:600px){.wrap{padding:20px 12px 40px}.card{padding:18px 14px}.course-list{grid-template-columns:1fr}.course-option{min-height:64px}.check-grid{grid-template-columns:1fr}.total{font-size:23px}}
+</style></head><body>
+<main class="wrap"><header><div class="seal">α</div><h1>α六甲道整骨院・鍼灸院</h1><div class="sub">初診 料金シミュレーション</div></header>
+<section class="card"><p class="intro">まず受診方法を選択してください。選択したコースにオプション料金を加えて、初診時の概算を表示します。</p>
+<div class="field"><span class="q">ご希望のコース</span><div class="course-list" role="radiogroup" aria-label="ご希望のコース"><label class="course-option" for="course-regular"><input id="course-regular" type="radio" name="course" value="regular"><span>当院通常コース</span></label><label class="course-option" for="course-insurance"><input id="course-insurance" type="radio" name="course" value="insurance"><span>健康保険を使う</span></label></div></div>
+<div class="field hidden" id="ratio-field"><span class="q">健康保険の負担割合</span><div class="choice-group"><label class="choice"><input type="radio" name="ratio" value="1">1割</label><label class="choice"><input type="radio" name="ratio" value="2">2割</label><label class="choice"><input type="radio" name="ratio" value="3" checked>3割</label></div></div>
+<div class="note hidden" id="insurance-note">急性期の捻挫・打撲・挫傷・骨折・脱臼が保険適用となります。肩こり・慢性腰痛は自費適用となります。</div>
+<div class="field hidden" id="options-field" style="margin-top:20px"><span class="q">基本メニュー・オプション（任意）</span><div class="check-grid" id="options">
+<label class="check-item"><input type="checkbox" value="鍼灸（自律神経測定・温灸込み）" data-min="2200" data-max="4400"><span>鍼灸（自律神経測定〔月1回〕＋温灸込み／＋￥2,200〜￥4,400）</span></label>
+<label class="check-item"><input type="checkbox" value="骨盤矯正" data-price="1980"><span>骨盤矯正（＋￥1,980）</span></label><label class="check-item"><input type="checkbox" value="矯正" data-price="1980"><span>矯正（＋￥1,980）</span></label>
+<label class="check-item"><input type="checkbox" value="足裏測定" data-price="3300"><span>足裏測定（＋￥3,300）</span></label><label class="check-item"><input type="checkbox" value="ビタミン・ミネラル測定" data-price="3300"><span>ビタミン・ミネラル測定（＋￥3,300）</span></label>
+<label class="check-item"><input type="checkbox" value="血管年齢測定" data-price="1100"><span>血管年齢測定（＋￥1,100）</span></label><label class="check-item"><input type="checkbox" value="エコー（超音波検査）" data-price="1980"><span>エコー（超音波検査）（＋￥1,980）</span></label></div></div>
+<div class="result" aria-live="polite"><div class="result-head"><span id="result-label">コースを選択すると料金が表示されます</span><span class="total" id="total">—</span></div><div class="breakdown" id="breakdown"></div></div>
+<div class="foot">当院通常コースと健康保険コースは別々に計算し、同時に加算しません。表示金額は概算です。実際のお支払い金額は施術内容・保険適用状況等により異なる場合があります。</div></section></main>
 <script>
-const yen=n=>'￥'+Number(n).toLocaleString('ja-JP');const firstVisitBase={1:2540,2:2870,3:3210};
-function calc(){let lo=firstVisitBase[document.querySelector('input[name=ratio]:checked').value],hi=lo,rows=[{label:'初検料+基本施術（保険負担分）',min:lo,max:hi}];
-document.querySelectorAll('#options input:checked').forEach(x=>{const min=Number(x.dataset.min||x.dataset.price),max=Number(x.dataset.max||x.dataset.price);lo+=min;hi+=max;rows.push({label:x.value,min,max})});
-document.querySelector('#total').textContent=lo===hi?yen(lo):`${yen(lo)} 〜 ${yen(hi)}`;
-document.querySelector('#breakdown').innerHTML=rows.map(x=>`<div class="line"><span>${x.label}</span><span>${x.min===x.max?yen(x.min):yen(x.min)+' 〜 '+yen(x.max)}</span></div>`).join('')}
-document.addEventListener('change',calc);calc();
+const yen=n=>'￥'+Number(n).toLocaleString('ja-JP');
+const insuranceBase={1:2540,2:2870,3:3210};
+const ratioField=document.querySelector('#ratio-field');
+const insuranceNote=document.querySelector('#insurance-note');
+const optionsField=document.querySelector('#options-field');
+const total=document.querySelector('#total');
+const resultLabel=document.querySelector('#result-label');
+const breakdown=document.querySelector('#breakdown');
+function calculate(){
+ const selected=document.querySelector('input[name="course"]:checked')?.value;
+ const usingInsurance=selected==='insurance';
+ ratioField.classList.toggle('hidden',!usingInsurance);
+ insuranceNote.classList.toggle('hidden',!usingInsurance);
+ optionsField.classList.toggle('hidden',!selected);
+ if(!selected){resultLabel.textContent='コースを選択すると料金が表示されます';total.textContent='—';breakdown.innerHTML='';return;}
+ let min,max,rows=[];
+ if(usingInsurance){const ratio=document.querySelector('input[name="ratio"]:checked').value;min=insuranceBase[ratio];max=min;rows.push({label:'初検料＋基本施術（健康保険の自己負担分）',min:min,max:max});resultLabel.textContent='健康保険コース 初診概算（税込）';}
+ else{min=2200;max=2200;rows.push({label:'当院通常コース（初診時）',min:min,max:max});resultLabel.textContent='当院通常コース 初診概算（税込）';}
+ document.querySelectorAll('#options input:checked').forEach(item=>{const optionMin=Number(item.dataset.min||item.dataset.price);const optionMax=Number(item.dataset.max||item.dataset.price);min+=optionMin;max+=optionMax;rows.push({label:item.value,min:optionMin,max:optionMax});});
+ total.textContent=min===max?yen(min):yen(min)+' 〜 '+yen(max);
+ breakdown.innerHTML=rows.map(row=>'<div class="line"><span>'+row.label+'</span><span>'+(row.min===row.max?yen(row.min):yen(row.min)+' 〜 '+yen(row.max))+'</span></div>').join('');
+}
+document.addEventListener('change',calculate);calculate();
 </script></body></html>
